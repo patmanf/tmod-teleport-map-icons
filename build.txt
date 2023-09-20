@@ -1,0 +1,4 @@
+displayName = Teleport to Spawn Map Icons
+author = patman
+version = 1.0
+includeSource = true

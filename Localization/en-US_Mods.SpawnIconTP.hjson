@@ -1,0 +1,27 @@
+NoMirror: You need a Magic Mirror to teleport there
+
+Configs: {
+	Config: {
+		DisplayName: Config [i:MagicMirror]
+
+		RequireMirror: {
+			Label: Require Mirror
+			Tooltip: ""
+		}
+
+		MirrorItems: {
+			Label: Mirror Items
+			Tooltip: ""
+		}
+
+		AllowVoidBag: {
+			Label: Allow Void Bag
+			Tooltip: check for mirrors in the void bag
+		}
+
+		Enabled: {
+			Label: Enabled
+			Tooltip: ""
+		}
+	}
+}
