@@ -1,1 +1,3 @@
 allows you to teleport to the "Spawn" and "Home" map icons, similar to pylons
+
+also adds new icons for the oceans and underworld

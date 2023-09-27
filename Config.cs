@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Humanizer;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Terraria.ID;
 using Terraria.ModLoader.Config;
@@ -16,13 +17,30 @@ internal class Config : ModConfig
     public bool Enabled;
 
     [DefaultValue(true)]
-    public bool RequireMirror;
+    [BackgroundColor(104, 159, 255)]
+    public bool ConchEnabled;
 
-    public List<ItemDefinition> MirrorItems;
+    [DefaultValue(true)]
+    public bool RequireMirror;
 
     [DefaultValue(true)]
     [BackgroundColor(123, 95, 212)]
     public bool AllowVoidBag;
+
+
+    [Header("ItemLists")]
+
+    [BackgroundColor(115, 230, 238)]
+    public List<ItemDefinition> MirrorItems;
+
+    [BackgroundColor(211, 168, 127)]
+    public List<ItemDefinition> MagicConchItems;
+
+    [BackgroundColor(157, 70, 70)]
+    public List<ItemDefinition> DemonConchItems;
+
+    [BackgroundColor(90, 146, 90)]
+    public List<ItemDefinition> ShellphoneItems;
 
     public Config()
     {
@@ -30,11 +48,25 @@ internal class Config : ModConfig
         {
             new ItemDefinition(ItemID.MagicMirror),
             new ItemDefinition(ItemID.IceMirror),
-            new ItemDefinition(ItemID.CellPhone),
+            new ItemDefinition(ItemID.CellPhone)
+        };
+
+        MagicConchItems = new()
+        {
+            new ItemDefinition(ItemID.MagicConch)
+        };
+
+        DemonConchItems = new()
+        {
+            new ItemDefinition(ItemID.DemonConch)
+        };
+
+        ShellphoneItems = new()
+        {
             new ItemDefinition(ItemID.Shellphone),
             new ItemDefinition(ItemID.ShellphoneSpawn),
             new ItemDefinition(ItemID.ShellphoneOcean),
-            new ItemDefinition(ItemID.ShellphoneHell),
+            new ItemDefinition(ItemID.ShellphoneHell)
         };
     }
 }

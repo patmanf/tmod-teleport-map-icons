@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -9,6 +10,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.Map;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Config;
 using Terraria.UI;
 
 namespace SpawnIconTP;
@@ -31,15 +33,15 @@ public class SpawnIconTP : Mod
         Vector2 spawnPos = new(Main.spawnTileX, Main.spawnTileY);
         Vector2 bedPos = new(Main.LocalPlayer.SpawnX, Main.LocalPlayer.SpawnY);
 
-        DrawIcon(context, TextureAssets.SpawnPoint.Value, spawnPos, "UI.SpawnPoint", ref text, TeleportSpawn);
+        DrawIcon(ref context, TextureAssets.SpawnPoint.Value, spawnPos, "UI.SpawnPoint", ref text, TeleportSpawn);
 
         if (Main.LocalPlayer.SpawnX != -1)
         {
-            DrawIcon(context, TextureAssets.SpawnBed.Value, bedPos, "UI.SpawnBed", ref text, TeleportBed);
+            DrawIcon(ref context, TextureAssets.SpawnBed.Value, bedPos, "UI.SpawnBed", ref text, TeleportBed);
         }
     }
 
-    private static void DrawIcon(MapOverlayDrawContext context, Texture2D tex, Vector2 pos, string hoverTextKey, ref string text, Action teleport)
+    internal static void DrawIcon(ref MapOverlayDrawContext context, Texture2D tex, Vector2 pos, string hoverTextKey, ref string text, Action teleport)
     {
         var result = context.Draw(tex, pos, Color.White, new(1, 1, 0, 0), 1f, 2f, Alignment.Center);
         if (!result.IsMouseOver)
@@ -56,19 +58,26 @@ public class SpawnIconTP : Mod
         PlayerInput.LockGamepadButtons("MouseLeft");
         SoundEngine.PlaySound(SoundID.MenuClose);
 
-        if (!HasMirror())
+        teleport?.Invoke();
+    }
+
+    private static bool CheckMirror()
+    {
+        bool hasMirror = HasItems(Config.Instance.MirrorItems) || HasItems(Config.Instance.ShellphoneItems);
+        if (!hasMirror)
         {
             Main.NewText(Language.GetTextValue("Mods.SpawnIconTP.NoMirror"), new Color(255, 240, 20));
-            return;
+            return false;
         }
 
         SoundEngine.PlaySound(SoundID.Item6);
-
-        teleport?.Invoke();
+        return true;
     }
 
     private static void TeleportSpawn()
     {
+        if (!CheckMirror()) return;
+
         if (Main.netMode == NetmodeID.SinglePlayer)
             Main.LocalPlayer.Shellphone_Spawn();
         else if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -77,6 +86,8 @@ public class SpawnIconTP : Mod
 
     private static void TeleportBed()
     {
+        if (!CheckMirror()) return;
+
         Player player = Main.LocalPlayer;
         float speedX = player.velocity.X * 0.5f;
         float speedY = player.velocity.Y * 0.5f;
@@ -95,7 +106,7 @@ public class SpawnIconTP : Mod
         }
     }
 
-    private static bool HasMirror()
+    internal static bool HasItems(List<ItemDefinition> list)
     {
         if (!Config.Instance.RequireMirror) return true;
 
@@ -103,6 +114,6 @@ public class SpawnIconTP : Mod
             ? Main.LocalPlayer.HasItemInInventoryOrOpenVoidBag
             : Main.LocalPlayer.HasItem;
 
-        return Config.Instance.MirrorItems.Exists(item => hasItem(item.Type));
+        return list.Exists(item => hasItem(item.Type));
     }
 }

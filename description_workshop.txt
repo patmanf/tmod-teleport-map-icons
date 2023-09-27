@@ -1,5 +1,7 @@
 allows you to teleport to the "Spawn" and "Home" map icons, similar to pylons
 
+also adds new icons for the oceans and the underworld
+
 that's it
 
 [img]https://i.imgur.com/wXjYMqP.gif[/img]https://discord.gg/GdsQSgV

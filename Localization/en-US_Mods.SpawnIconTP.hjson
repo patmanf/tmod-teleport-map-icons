@@ -1,27 +1,50 @@
 NoMirror: You need a Magic Mirror to teleport there
+TpFailed: Teleportation failed
 
 Configs: {
 	Config: {
 		DisplayName: Config [i:MagicMirror]
 
-		RequireMirror: {
-			Label: Require Mirror
-			Tooltip: ""
-		}
-
-		MirrorItems: {
-			Label: Mirror Items
-			Tooltip: ""
-		}
-
-		AllowVoidBag: {
-			Label: Allow Void Bag
-			Tooltip: check for mirrors in the void bag
-		}
-
 		Enabled: {
 			Label: Enabled
 			Tooltip: ""
 		}
+
+		ConchEnabled: {
+			Tooltip: add map icons for teleporting to the oceans or hell
+			Label: Conches Enabled
+		}
+
+		RequireMirror: {
+			Label: Require Mirror Items
+			Tooltip: require a mirror item (or conch) in inventory to teleport
+		}
+
+		AllowVoidBag: {
+			Label: Allow Void Bag
+			Tooltip: check for items in the void bag
+		}
+
+		MirrorItems: {
+			Label: Magic Mirror Items
+			Tooltip: ""
+		}
+
+		ShellphoneItems: {
+			Tooltip: ""
+			Label: Shellphone Items
+		}
+
+		DemonConchItems: {
+			Tooltip: ""
+			Label: Demon Conch Items
+		}
+
+		MagicConchItems: {
+			Tooltip: ""
+			Label: Magic Conch Items
+		}
+
+		Headers.ItemLists: ""
 	}
 }
