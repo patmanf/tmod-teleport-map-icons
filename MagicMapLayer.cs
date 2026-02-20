@@ -37,7 +37,7 @@ public class MagicMapLayer : ModMapLayer
     {
         if (!Config.Instance.Enabled) return;
 
-        bool hasShellphone = !Config.Instance.RequireMirror || HasItems(Config.Instance.ShellphoneItems);
+        bool hasShellphone = HasItems(Config.Instance.ShellphoneItems);
 
         if (hasShellphone || HasItems(Config.Instance.MirrorItems))
         {
@@ -62,9 +62,18 @@ public class MagicMapLayer : ModMapLayer
 
     private static bool HasItems(List<ItemDefinition> list)
     {
-        return Config.Instance.AllowVoidBag
-            ? list.Exists(item => Main.LocalPlayer.HasItemInInventoryOrOpenVoidBag(item.Type))
-            : list.Exists(item => Main.LocalPlayer.HasItem(item.Type));
+        Player player = Main.LocalPlayer;
+        return (Config.Instance.ItemMode) switch
+        {
+            Config.ItemModes.InventoryOnly
+                => list.Exists(item => player.HasItem(item.Type)),
+            Config.ItemModes.InventoryOrVoidBag
+                => list.Exists(item => player.HasItemInInventoryOrOpenVoidBag(item.Type)),
+            Config.ItemModes.AnyInventory
+                => list.Exists(item => player.HasItemInAnyInventory(item.Type)),
+            Config.ItemModes.DontRequireItems => true,
+            _ => false
+        };
     }
 
     private static void ClickSpawn()

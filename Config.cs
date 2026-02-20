@@ -20,14 +20,12 @@ internal class Config : ModConfig
     [DefaultValue(true)]
     [BackgroundColor(104, 159, 255)]
     public bool ConchEnabled;
-
-    [DefaultValue(true)]
-    public bool RequireMirror;
-
-    [DefaultValue(true)]
+    
+    [Dropdown]
+    [DefaultValue(ItemModes.InventoryOnly)]
     [BackgroundColor(123, 95, 212)]
-    public bool AllowVoidBag;
-
+    public ItemModes ItemMode;
+    internal enum ItemModes { InventoryOnly, InventoryOrVoidBag, AnyInventory, DontRequireItems }
 
     [Header("ItemLists")]
 

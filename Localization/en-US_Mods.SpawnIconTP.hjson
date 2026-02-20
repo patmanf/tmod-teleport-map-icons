@@ -12,15 +12,12 @@ Configs: {
 			Label: Conches Enabled
 		}
 
-		RequireMirror: {
-			Label: Require Mirror Items
-			Tooltip: require a mirror item (or conch) in inventory to teleport
+		ItemMode: {
+			Label: Require items in:
+			Tooltip: Where to check for magic mirrors & conches
 		}
 
-		AllowVoidBag: {
-			Label: Allow Void Bag
-			Tooltip: check for items in the void bag
-		}
+		Headers.ItemLists: Item Lists
 
 		MirrorItems: {
 			Label: Magic Mirror Items
@@ -37,11 +34,27 @@ Configs: {
 			Label: Demon Conch Items
 		}
 
-		MagicConchItems: {
-			Tooltip: ""
-			Label: Magic Conch Items
+	ItemModes: {
+		Tooltip: ""
+
+		InventoryOnly: {
+			Label: Main Inventory
+			Tooltip: Only check main inventory
 		}
 
-		Headers.ItemLists: ""
+		InventoryOrVoidBag: {
+			Label: Inventory & Void Bag
+			Tooltip: Check main inventory & void bag
+		}
+
+		AnyInventory: {
+			Label: Any Inventory
+			Tooltip: Check all inventories
+		}
+
+		DontRequireItems: {
+			Label: Don't Require Items
+			Tooltip: Always allow teleportation
+		}
 	}
 }
