@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using JetBrains.Annotations;
 using Terraria.ID;
 using Terraria.ModLoader.Config;
 
 namespace SpawnIconTP;
 
+[PublicAPI]
 internal class MagicMapConfig : ModConfig
 {
     public override ConfigScope Mode => ConfigScope.ClientSide;
