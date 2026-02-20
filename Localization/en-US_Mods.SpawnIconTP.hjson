@@ -1,15 +1,15 @@
 Configs: {
 	Config: {
-		DisplayName: Config [i:MagicMirror]
+		DisplayName: Config
 
 		Enabled: {
 			Label: Enabled
-			Tooltip: ""
+			Tooltip: Enable the mod
 		}
 
 		ConchEnabled: {
-			Tooltip: add map icons for teleporting to the oceans or hell
 			Label: Conches Enabled
+			Tooltip: Enable map icons for teleporting to oceans & the underworld
 		}
 
 		ItemMode: {
@@ -21,18 +21,24 @@ Configs: {
 
 		MirrorItems: {
 			Label: Magic Mirror Items
-			Tooltip: ""
+			Tooltip: Items that allow you to teleport to spawn
 		}
 
-		ShellphoneItems: {
-			Tooltip: ""
-			Label: Shellphone Items
+		MagicConchItems: {
+			Label: Magic Conch Items
+			Tooltip: Items that allow you to teleport to oceans
 		}
 
 		DemonConchItems: {
-			Tooltip: ""
 			Label: Demon Conch Items
+			Tooltip: Items that allow you to teleport to the underworld
 		}
+
+		ShellphoneItems: {
+			Label: Shellphone Items
+			Tooltip: Items that allow you to teleport to spawn, oceans, and the underworld
+		}
+	}
 
 	ItemModes: {
 		Tooltip: ""

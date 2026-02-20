@@ -30,42 +30,30 @@ internal class Config : ModConfig
     [Header("ItemLists")]
 
     [BackgroundColor(115, 230, 238)]
-    public List<ItemDefinition> MirrorItems;
+    public List<ItemDefinition> MirrorItems = [];
 
     [BackgroundColor(211, 168, 127)]
-    public List<ItemDefinition> MagicConchItems;
+    public List<ItemDefinition> MagicConchItems = [];
 
     [BackgroundColor(157, 70, 70)]
-    public List<ItemDefinition> DemonConchItems;
+    public List<ItemDefinition> DemonConchItems = [];
 
     [BackgroundColor(90, 146, 90)]
-    public List<ItemDefinition> ShellphoneItems;
+    public List<ItemDefinition> ShellphoneItems = [];
 
     public Config()
     {
-        MirrorItems =
-        [
-            new ItemDefinition(ItemID.MagicMirror),
-            new ItemDefinition(ItemID.IceMirror),
-            new ItemDefinition(ItemID.CellPhone)
-        ];
-
-        MagicConchItems =
-        [
-            new ItemDefinition(ItemID.MagicConch)
-        ];
-
-        DemonConchItems =
-        [
-            new ItemDefinition(ItemID.DemonConch)
-        ];
-
-        ShellphoneItems =
-        [
-            new ItemDefinition(ItemID.Shellphone),
-            new ItemDefinition(ItemID.ShellphoneSpawn),
-            new ItemDefinition(ItemID.ShellphoneOcean),
-            new ItemDefinition(ItemID.ShellphoneHell)
-        ];
+        MirrorItems.Add(new ItemDefinition(ItemID.MagicMirror));
+        MirrorItems.Add(new ItemDefinition(ItemID.IceMirror));
+        MirrorItems.Add(new ItemDefinition(ItemID.CellPhone));
+        
+        MagicConchItems.Add(new ItemDefinition(ItemID.MagicConch));
+        
+        DemonConchItems.Add(new ItemDefinition(ItemID.DemonConch));
+        
+        ShellphoneItems.Add(new ItemDefinition(ItemID.Shellphone));
+        ShellphoneItems.Add(new ItemDefinition(ItemID.ShellphoneSpawn));
+        ShellphoneItems.Add(new ItemDefinition(ItemID.ShellphoneOcean));
+        ShellphoneItems.Add(new ItemDefinition(ItemID.ShellphoneHell));
     }
 }
