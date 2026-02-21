@@ -1,4 +1,6 @@
-displayName = Teleport to Map Icons
+displayName = Magic Map Icons
 author = patman
-version = 2.0
-includeSource = true
+version = 3.0
+includeSource = false
+buildIgnore = *.user, *.pdn, *.md, Properties/*
+homepage = https://github.com/patmanf/tmod-magic-map-icons

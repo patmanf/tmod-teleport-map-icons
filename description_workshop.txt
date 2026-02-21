@@ -1,9 +1,8 @@
-allows you to teleport to the "Spawn" and "Home" map icons, similar to pylons
+Allows you to use the map to teleport to the 'Home' & 'Spawn' icons if you have a magic mirror. sorta like pylons
 
-also adds new icons for the oceans and the underworld
-
-that's it
+It also adds map icons to teleport to oceans & the underworld if you have a magic/demon conch
 
 [img]https://i.imgur.com/wXjYMqP.gif[/img]https://discord.gg/GdsQSgV
 [img]https://i.imgur.com/uyG8oTa.gif[/img]https://www.patreon.com/pathiccstar
 [img]https://i.imgur.com/xVfcRRH.gif[/img]https://ko-fi.com/patmanf
+[img]https://i.imgur.com/jJAj6jF.gif[/img]https://github.com/patmanf/tmod-magic-map-icons
